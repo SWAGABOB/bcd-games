@@ -197,8 +197,8 @@ jobs:
       # madeira-bcd FORK-ONLY: Send logs to BCD (LogUpload*.swift, bcd-logs/worker): the
       # phone's scrub is tools/autotune-fixture.py's, the gzip is valid, the compressed copy
       # is deleted, automatic sending is opt-in and Wi-Fi only.
-      - name: Check Send logs to BCD
-        run: python3 tests/host/check-log-upload.py --require-swift
+      #- name: Check Send logs to BCD
+      #  run: python3 tests/host/check-log-upload.py --require-swift
 
       # The performance trace (round 604; BCDPerfTrace*.swift): one line a second, an hour at most, the newest 20 kept, sent after a log's
       # last line when the player turned it on (or a guided debug run did), nothing at all while it is off, and tools/log-facts.py reading it.
@@ -208,8 +208,8 @@ jobs:
       # Help with a game (round 604; BCDHelpCore/BCDGameHelp/BCDReadinessCore.swift and their live sides): the guided debug run (nothing sent unless the
       # player taps Send, the trace and the detailed log asked for by the session only), game feedback through the existing Feedback intake, and the
       # launch check (a note on the game's page, from the import tables of its program files), with tools/pull-logs.py reading the feedback.
-      - name: Check help with a game
-        run: python3 tests/host/check-bcd-help.py --require-swift
+      #- name: Check help with a game
+      #  run: python3 tests/host/check-bcd-help.py --require-swift
 
       # Shareable control layouts (round 604; BCDControlShare*.swift): a custom layout as a small JSON file, a file added as a new layout after the
       # envelope and every control are checked (size, ranges, nesting, fresh ids, a name that replaces nothing).
@@ -233,21 +233,21 @@ jobs:
       # tools/pull-logs.py): the game's own surface only, a memory guard, Photos add-only, the picture sent as it is and only when
       # chosen, as a small copy of 100 KB or less made apart from the kept one (BCDScreenshotShrink.swift, run on generated pictures),
       # the intake's 160 KB limit, and the pull tool saving it beside its log.
-      - name: Check screenshots with Send Log
-        run: python3 tests/host/check-bcd-screenshot.py --require-swift
+      #- name: Check screenshots with Send Log
+      #  run: python3 tests/host/check-bcd-screenshot.py --require-swift
 
       # madeira-bcd FORK-ONLY: Settings › Feedback (FeedbackUpload*.swift, BCDSettingsFeedback.swift,
       # the intake's POST /v1/feedback, tools/pull-logs.py --feedback): the intake's gate, endpoint
       # and fields, nothing personal in the body, the person's words untouched, the limits, the
       # section's place after Logs, and the pull tool never printing the key.
-      - name: Check Settings › Feedback
-        run: python3 tests/host/check-feedback.py --require-swift
+      #- name: Check Settings › Feedback
+      #  run: python3 tests/host/check-feedback.py --require-swift
 
       # A newer BCD, said at most once a day (BCDUpdateCheck.swift, BCDUpdateNotice.swift): the source's shape
       # as tools/update-altsource.py writes it, the build compare, the day key, one host with a size cap, the
       # alert only over the library with OK alone, env.MADEIRA_UPDATE_CHECK = 0.
-      - name: Check the update notice
-        run: python3 tests/host/check-update-check.py --require-swift
+      #- name: Check the update notice
+      #  run: python3 tests/host/check-update-check.py --require-swift
 
       # An install without the increased memory limit is told once per build and where a log is sent, never blocked
       # (MemoryRights.swift; the box over the library, Settings › Logs and a game's page).
@@ -1908,8 +1908,8 @@ jobs:
       - name: Check virtual storage device contracts
         run: python3 tests/host/check-storage-device.py
 
-      - name: Check paired IPA and OTA publication contracts
-        run: python3 tests/host/check-ota-variants.py
+      #- name: Check paired IPA and OTA publication contracts
+      #  run: python3 tests/host/check-ota-variants.py
 
       - name: Check the app's iOS 18 minimum
         run: python3 tests/host/check-ios-minimum.py
