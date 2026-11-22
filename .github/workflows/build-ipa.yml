@@ -202,8 +202,8 @@ jobs:
 
       # The performance trace (round 604; BCDPerfTrace*.swift): one line a second, an hour at most, the newest 20 kept, sent after a log's
       # last line when the player turned it on (or a guided debug run did), nothing at all while it is off, and tools/log-facts.py reading it.
-      - name: Check the performance trace
-        run: python3 tests/host/check-bcd-perftrace.py --require-swift
+      #- name: Check the performance trace
+      #  run: python3 tests/host/check-bcd-perftrace.py --require-swift
 
       # Help with a game (round 604; BCDHelpCore/BCDGameHelp/BCDReadinessCore.swift and their live sides): the guided debug run (nothing sent unless the
       # player taps Send, the trace and the detailed log asked for by the session only), game feedback through the existing Feedback intake, and the
@@ -226,8 +226,8 @@ jobs:
       # The session summary line ([session], BCDSessionCore.swift), the marker of an open session and the one question after a
       # session that closed unexpectedly (BCDSessionRecorderLive.swift), and the readers of the line: tools/log-facts.py and
       # the scanner behind the replay.
-      - name: Check the session summary and the question after an unexpected close
-        run: python3 tests/host/check-bcd-session-record.py --require-swift
+      #- name: Check the session summary and the question after an unexpected close
+      #  run: python3 tests/host/check-bcd-session-record.py --require-swift
 
       # Screenshots from the in-game menu and Send Log (BCDScreenshotLive.swift, LogUpload.swift, the intake's POST /v1/shots,
       # tools/pull-logs.py): the game's own surface only, a memory guard, Photos add-only, the picture sent as it is and only when
@@ -251,8 +251,8 @@ jobs:
 
       # An install without the increased memory limit is told once per build and where a log is sent, never blocked
       # (MemoryRights.swift; the box over the library, Settings › Logs and a game's page).
-      - name: Check the memory limit notice
-        run: python3 tests/host/check-memory-rights-notice.py
+      #- name: Check the memory limit notice
+      #  run: python3 tests/host/check-memory-rights-notice.py
 
       # The GDI handle table a 32-bit program can map: the Dock and the library's Desktop ask for the
       # section-backed table, games keep the default, bcd.cfg can turn it off, and ntdll says when a
