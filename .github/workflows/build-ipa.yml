@@ -179,7 +179,7 @@ jobs:
       # background Windows desktop closes (and Resume's question), the desktop quit's server shutdown and its native-thread
       # acknowledgement with real pthreads, and the tabletop geometry. Host runs; nothing else in the app changes.
       #- name: Check the native Duo interface
-        run: |
+        #run: |
           #python3 tests/host/check-duo-controller-navigation.py
           #python3 tests/host/check-duo-download-session.py
           #python3 tests/host/check-desktop-quit.py
